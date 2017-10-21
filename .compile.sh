@@ -5,9 +5,9 @@ set -e
 set -x
 
 svn checkout https://svn.php.net/repository/phpdoc/modules/doc-pt_BR doc-pt_BR &>/dev/null \
-
-&& tree -L 2 \
-
-&& mkdir -p out \
-
-&& ./generate-html.php > out/index.html
+    \
+    && tree -L 2 \
+    \
+    && mkdir -p out \
+    \
+    && ./generate-html.php > out/index.html
