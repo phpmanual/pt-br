@@ -1,5 +1,8 @@
-#!/bin/bash
-set -e # Exit with nonzero exit code if anything fails
+#!/usr/bin/env sh
+# make the script fail for any failed command
+set -e
+# make the script display the commands it runs to help debugging failures
+set -x
 
 SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
