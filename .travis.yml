@@ -8,4 +8,3 @@ script:
 env:
   global:
   - ENCRYPTION_LABEL: "91a937c16fbe"
-  - COMMIT_AUTHOR_EMAIL: "you@example.com"

@@ -35,18 +35,21 @@ doCompile
 
 # Now let's go have some fun with the cloned repo
 cd out
+
+# Remove the existing repo if it exists
+if [ -d ".git" ]; then
+    rm -rf .git
+fi
+
+# Create a repo for the built website for the master branch
+git init
+
+# configure env (locally)
 git config user.email 'rogeriopradoj@gmail.com'
 git config user.name 'phpmanual.github.io/br bot'
 
-# If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if git diff --quiet; then
-    echo "No changes to the output on this push; exiting."
-    exit 0
-fi
-
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
-git add -A .
+# commit build
+git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Get the deploy key by using Travis's stored variables to decrypt .deploy_key.enc
@@ -60,4 +63,4 @@ eval `ssh-agent -s`
 ssh-add .deploy_key
 
 # Now that we're all set up, we can push.
-git push $SSH_REPO $TARGET_BRANCH
+git push $SSH_REPO $TARGET_BRANCH -f
