@@ -1,6 +1,12 @@
 language: php
 php: 7
 
+addons:
+  apt:
+    packages:
+
+
+      - tree
 
 script:
     - bash ./.deploy.sh
