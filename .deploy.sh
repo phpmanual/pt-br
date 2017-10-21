@@ -35,7 +35,7 @@ fi
 
 # Create a repo for the built website for the master branch
 git init
-git checkout gh-pages
+git checkout -b gh-pages
 
 # configure env (locally)
 git config user.email 'rogeriopradoj@gmail.com'
