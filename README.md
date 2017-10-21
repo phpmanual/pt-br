@@ -1,5 +1,7 @@
 # phpmanual.github.io/br
 
+[![Build Status](https://travis-ci.org/phpmanual/br.svg?branch=master)](https://travis-ci.org/phpmanual/br)
+
 <https://phpmanual.github.io/br>
 
 List all maintainers (a), crediteds (b), translators (c, a+b), listed translators (d) and unlisted translators (e) in order to ease updating contributors in <https://svn.php.net/viewvc/phpdoc/pt_BR/trunk/translation.xml?view=markup> and/or <https://svn.php.net/viewvc/phpdoc/pt_BR/trunk/bookinfo.xml?view=markup>
