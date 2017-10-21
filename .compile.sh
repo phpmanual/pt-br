@@ -4,10 +4,10 @@ set -e
 # make the script display the commands it runs to help debugging failures
 set -x
 
-svn checkout https://svn.php.net/repository/phpdoc/modules/doc-pt_BR doc-pt_BR &>/dev/null
+svn checkout https://svn.php.net/repository/phpdoc/modules/doc-pt_BR doc-pt_BR &>/dev/null \
 
-tree -L 2
+&& tree -L 2 \
 
-mkdir -p out
+&& mkdir -p out \
 
-./generate-html.php > out/index.html
+&& ./generate-html.php > out/index.html
