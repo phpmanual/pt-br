@@ -22,8 +22,6 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
-mkdir -p out
-
 # Run our compile script
 doCompile
 
@@ -37,7 +35,7 @@ fi
 
 # Create a repo for the built website for the master branch
 git init
-git checkout --orphan gh-pages
+git checkout gh-pages
 
 # configure env (locally)
 git config user.email 'rogeriopradoj@gmail.com'
