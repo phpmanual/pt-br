@@ -1,5 +1,7 @@
-#!/usr/bin/env php -q
+#!/usr/bin/env php
 <?php
+
+error_reporting(~E_NOTICE);
 
 // Long runtime
 set_time_limit(0);
@@ -108,7 +110,7 @@ function get_tags($file, $val = "en-rev") {
 
           // rogeriopradoj
           global $crediteds;
-          if ($crediteds[trim($credit)]) {
+          if (isset($crediteds[trim($credit)])) {
             $crediteds[trim($credit)]++;
           } else {
             $crediteds[trim($credit)] = 1;
@@ -139,7 +141,7 @@ function get_tags($file, $val = "en-rev") {
 
   // rogeriopradoj
   global $maintainers;
-  if ($maintainers[$match[2]]) {
+  if (isset($maintainers[$match[2]])) {
     $maintainers[$match[2]]++;
   } else {
     $maintainers[$match[2]] = 1;
