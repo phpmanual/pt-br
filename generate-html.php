@@ -581,6 +581,20 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-108385293-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-108385293-2');
+        </script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -604,39 +618,58 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
         src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
-        body {
-          min-height: 2000px;
-          padding-top: 70px;
-        }
+            body {
+                min-height: 2000px;
+                padding-top: 70px;
+            }
         </style>
     </head>
     <body>
         <div id="container">
             <!-- Fixed navbar -->
             <nav class="navbar navbar-default navbar-fixed-top">
-              <div class="container">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">Credits and maintainers - PHPDOC pt_BR</a>
+                <div class="container">
+                    <div class="navbar-header">
+                        <button
+                            type="button"
+                            class="navbar-toggle collapsed"
+                            data-toggle="collapse"
+                            data-target="#navbar"
+                            aria-expanded="false"
+                            aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Credits and maintainers - PHPDOC pt_BR</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#maintainers">Maintainers</a>
+                            </li>
+                            <li>
+                                <a href="#crediteds">Crediteds</a>
+                            </li>
+                            <li>
+                                <a href="#all-translators">All Translators</a>
+                            </li>
+                            <li>
+                                <a href="#listed-translators">Listed Translators</a>
+                            </li>
+                            <li>
+                                <a href="#unlisted-translators">Unlisted Translators</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                  <ul class="nav navbar-nav">
-                    <li><a href="#maintainers">Maintainers</a></li>
-                    <li><a href="#crediteds">Crediteds</a></li>
-                    <li><a href="#all-translators">All Translators</a></li>
-                    <li><a href="#listed-translators">Listed Translators</a></li>
-                    <li><a href="#unlisted-translators">Unlisted Translators</a></li>
-                  </ul>
-                </div><!--/.nav-collapse -->
-              </div>
             </nav>
             <div class="table-responsive">
-                <table id="maintainers" style="width: auto !important;"
+                <table
+                    id="maintainers"
+                    style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
                     <caption>Maintainers</caption>
                     <thead>
@@ -656,7 +689,9 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                 </table>
             </div>
             <div class="table-responsive">
-                <table id="crediteds" style="width: auto !important;"
+                <table
+                    id="crediteds"
+                    style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
                     <caption>Crediteds</caption>
                     <thead>
@@ -676,7 +711,9 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                 </table>
             </div>
             <div class="table-responsive">
-                <table id="all-translators" style="width: auto !important;"
+                <table
+                    id="all-translators"
+                    style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
                     <caption>All Translators (Mainteners + Crediteds)</caption>
                     <thead>
@@ -694,7 +731,9 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                 </table>
             </div>
             <div class="table-responsive">
-                <table id="listed-translators" style="width: auto !important;"
+                <table
+                    id="listed-translators"
+                    style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
                     <caption>Listed Translators (doc-pt_BR/pt_BR/translation.xml)</caption>
                     <thead>
@@ -712,7 +751,9 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                 </table>
             </div>
             <div class="table-responsive">
-                <table id="unlisted-translators" style="width: auto !important;"
+                <table
+                    id="unlisted-translators"
+                    style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
                     <caption>Unlisted Translators (doc-pt_BR/pt_BR/translation.xml)</caption>
                     <thead>
@@ -732,7 +773,8 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
         </div>
         <!-- Latest compiled and minified JS -->
         <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script
+            src="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.22.5/js/jquery.tablesorter.min.js"></script>
         <script
