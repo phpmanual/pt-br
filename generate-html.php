@@ -671,7 +671,7 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                     id="maintainers"
                     style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Maintainers</caption>
+                    <caption>Maintainers <strong>[<?= count($maintainers) ?>]</strong></caption>
                     <thead>
                         <tr>
                             <th>Maintainer</th>
@@ -693,7 +693,7 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                     id="crediteds"
                     style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Crediteds</caption>
+                    <caption>Crediteds <strong>[<?= count($crediteds) ?>]</strong></caption>
                     <thead>
                         <tr>
                             <th>Credited</th>
@@ -715,7 +715,7 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                     id="all-translators"
                     style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>All Translators (Mainteners + Crediteds)</caption>
+                    <caption>All Translators (Mainteners + Crediteds) <strong>[<?= count($translators) ?>]</strong></caption>
                     <thead>
                         <tr>
                             <th>Translator</th>
@@ -735,7 +735,7 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                     id="listed-translators"
                     style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Listed Translators (doc-pt_BR/pt_BR/translation.xml)</caption>
+                    <caption>Listed Translators (doc-pt_BR/pt_BR/translation.xml) <strong>[<?= count($translatorsListedInXml) ?>]</strong></caption>
                     <thead>
                         <tr>
                             <th>Translator</th>
@@ -755,7 +755,7 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                     id="unlisted-translators"
                     style="width: auto !important;"
                     class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Unlisted Translators (doc-pt_BR/pt_BR/translation.xml)</caption>
+                    <caption>Unlisted Translators (doc-pt_BR/pt_BR/translation.xml) <strong>[<?= count($translatorsNotListedInXml) ?>]</strong></caption>
                     <thead>
                         <tr>
                             <th>Translator</th>
