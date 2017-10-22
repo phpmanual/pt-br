@@ -576,9 +576,7 @@ $translators = array_unique(
 $translatorsListedInXml    = array_column($translation["persons"], 'nick');
 $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
 
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -618,16 +616,19 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
         src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
-            body {
-                min-height: 2000px;
-                padding-top: 70px;
+            .back-to-top {
+                cursor: pointer;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                display: none;
             }
         </style>
     </head>
     <body>
         <div id="container">
             <!-- Fixed navbar -->
-            <nav class="navbar navbar-default navbar-fixed-top">
+            <nav class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
                         <button
@@ -642,7 +643,7 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Credits and maintainers - PHPDOC pt_BR</a>
+                        <a class="navbar-brand" href=".">Credits and maintainers - PHPDOC pt_BR</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
@@ -661,115 +662,159 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                             <li>
                                 <a href="#unlisted-translators">Unlisted Translators</a>
                             </li>
+                            <li class="dropdown active">
+                                <a
+                                    href="#"
+                                    class="dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">GitHub
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="https://github.com/phpmanual/br">👍 This project repository ...</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">More</li>
+                                    <li>
+                                        <a href="https://github.com/phpmanual">PHP Manual organization ...</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/phpmanual/env-pt-br">😄 Set up your environment ...</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <!--/.nav-collapse -->
                 </div>
             </nav>
-            <div class="table-responsive">
-                <table
-                    id="maintainers"
-                    style="width: auto !important;"
-                    class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Maintainers <strong>[<?= count($maintainers) ?>]</strong></caption>
-                    <thead>
-                        <tr>
-                            <th>Maintainer</th>
-                            <th>Files</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($maintainers as $maintainer => $files): ?>
-                        <tr>
-                            <td><?= $maintainer ?></td>
-                            <td><?= $files ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+            <div class="container">
+                <div class="table-responsive">
+                    <table
+                        id="maintainers"
+                        style="width: auto !important;"
+                        class="well table table-hover table-condensed table-striped table-bordered">
+                        <caption>Maintainers
+                            <strong>[<?= count($maintainers) ?>]</strong>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Maintainer</th>
+                                <th>Files</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($maintainers as $maintainer => $files): ?>
+                            <tr>
+                                <td><?= $maintainer ?></td>
+                                <td><?= $files ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table
+                        id="crediteds"
+                        style="width: auto !important;"
+                        class="well table table-hover table-condensed table-striped table-bordered">
+                        <caption>Crediteds
+                            <strong>[<?= count($crediteds) ?>]</strong>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Credited</th>
+                                <th>Files</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($crediteds as $credited => $files): ?>
+                            <tr>
+                                <td><?= $credited ?></td>
+                                <td><?= $files ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table
+                        id="all-translators"
+                        style="width: auto !important;"
+                        class="well table table-hover table-condensed table-striped table-bordered">
+                        <caption>All Translators (Mainteners + Crediteds)
+                            <strong>[<?= count($translators) ?>]</strong>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Translator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($translators as $translator): ?>
+                            <tr>
+                                <td><?= $translator ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table
+                        id="listed-translators"
+                        style="width: auto !important;"
+                        class="well table table-hover table-condensed table-striped table-bordered">
+                        <caption>Listed Translators (doc-pt_BR/pt_BR/translation.xml)
+                            <strong>[<?= count($translatorsListedInXml) ?>]</strong>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Translator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($translatorsListedInXml as $translator): ?>
+                            <tr>
+                                <td><?= $translator ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table
+                        id="unlisted-translators"
+                        style="width: auto !important;"
+                        class="well table table-hover table-condensed table-striped table-bordered">
+                        <caption>Unlisted Translators (doc-pt_BR/pt_BR/translation.xml)
+                            <strong>[<?= count($translatorsNotListedInXml) ?>]</strong>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Translator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($translatorsNotListedInXml as $translator): ?>
+                            <tr>
+                                <td><?= $translator ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="table-responsive">
-                <table
-                    id="crediteds"
-                    style="width: auto !important;"
-                    class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Crediteds <strong>[<?= count($crediteds) ?>]</strong></caption>
-                    <thead>
-                        <tr>
-                            <th>Credited</th>
-                            <th>Files</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($crediteds as $credited => $files): ?>
-                        <tr>
-                            <td><?= $credited ?></td>
-                            <td><?= $files ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table-responsive">
-                <table
-                    id="all-translators"
-                    style="width: auto !important;"
-                    class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>All Translators (Mainteners + Crediteds) <strong>[<?= count($translators) ?>]</strong></caption>
-                    <thead>
-                        <tr>
-                            <th>Translator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($translators as $translator): ?>
-                        <tr>
-                            <td><?= $translator ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table-responsive">
-                <table
-                    id="listed-translators"
-                    style="width: auto !important;"
-                    class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Listed Translators (doc-pt_BR/pt_BR/translation.xml) <strong>[<?= count($translatorsListedInXml) ?>]</strong></caption>
-                    <thead>
-                        <tr>
-                            <th>Translator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($translatorsListedInXml as $translator): ?>
-                        <tr>
-                            <td><?= $translator ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table-responsive">
-                <table
-                    id="unlisted-translators"
-                    style="width: auto !important;"
-                    class="well table table-hover table-condensed table-striped table-bordered">
-                    <caption>Unlisted Translators (doc-pt_BR/pt_BR/translation.xml) <strong>[<?= count($translatorsNotListedInXml) ?>]</strong></caption>
-                    <thead>
-                        <tr>
-                            <th>Translator</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($translatorsNotListedInXml as $translator): ?>
-                        <tr>
-                            <td><?= $translator ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+            <a
+                id="back-to-top"
+                href="#"
+                class="btn btn-primary btn-lg back-to-top"
+                role="button"
+                title="Click to return on the top page"
+                data-toggle="tooltip"
+                data-placement="left">
+                <span class="glyphicon glyphicon-chevron-up"></span></a>
         </div>
         <!-- Latest compiled and minified JS -->
         <script src="https://code.jquery.com/jquery.js"></script>
@@ -789,6 +834,26 @@ $translatorsNotListedInXml = array_diff($translators, $translatorsListedInXml);
                         [0, 0]
                     ]
                 })
+            });
+            $(document).ready(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 50) {
+                        $('#back-to-top').fadeIn();
+                    } else {
+                        $('#back-to-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-to-top').click(function () {
+                    $('#back-to-top').tooltip('hide');
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+
+                $('#back-to-top').tooltip('show');
+
             });
         </script>
     </body>
